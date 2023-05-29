@@ -12,10 +12,6 @@ export default defineConfig({
   root: "app/javascript/src",
   clearScreen: false,
   plugins: [react(),
-  sassPlugin({
-      // Custom SCSS options
-      includePaths: ['./src'],
-    }),
   eslintPlugin({
     // ESLint options
     cache: false,
