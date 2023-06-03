@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
+import PropertyCard from "./PropertyCard";
 
-const Main = () => {
-  return (
-    <div>Main</div>
-  )
-}
+const Main = () => <PropertyCard />;
 
 export default Main;
