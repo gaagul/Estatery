@@ -11,18 +11,23 @@ import { HOUSE } from "./constants";
 
 const PropertyCard = ({ house = HOUSE }) => (
   <div className="h-60 w-52 rounded-lg border-2 shadow-md">
-    <img alt="img" className="h-1/2 w-full thumbnail" src={house?.thumbnail} />
+    <img alt="img" className="thumbnail h-1/2 w-full" src={house?.thumbnail} />
     <div className="mt-2 flex flex-col px-4">
       <div className="flex items-center justify-between">
         <div className="flex items-end">
           <Typography className="primary-text" fontSize={14}>
             ${house?.price}
           </Typography>
-          <Typography fontSize={14}>{house?.forRent ? " /month" : ""}</Typography>
-        </div> 
-        <IconButton size="small" style={{
-          height: "30px",
-        }}>
+          <Typography fontSize={14}>
+            {house?.forRent ? " /month" : ""}
+          </Typography>
+        </div>
+        <IconButton
+          size="small"
+          style={{
+            height: "30px",
+          }}
+        >
           {house?.favorite ? (
             <Favorite className="primary-text" />
           ) : (

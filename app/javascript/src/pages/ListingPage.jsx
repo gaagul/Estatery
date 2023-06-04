@@ -8,7 +8,7 @@ const ListingPage = () => (
   <Container className="!min-h-screen">
   <div className="flex h-full w-full flex-col px-24 pt-16 pb-2">
     <Filterbar />
-    <div className="mt-6 flex flex-wrap justify-around  flex-grow gap-8">
+    <div className="mt-6 flex flex-grow flex-wrap justify-around gap-8 overflow-scroll">
       <PropertyCard />
       <PropertyCard />
       <PropertyCard />
