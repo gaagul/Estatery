@@ -18,10 +18,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 const Copyright = props => (
   <Typography align="center" color="text.secondary" variant="body2" {...props}>
     {"Copyright © "}
-    <Link color="inherit" href="https://mui.com/">
-      Your Website
-    </Link>{" "}
-    {new Date().getFullYear()}.
+    
+      Casa
+    {" "}
+    {new Date().getFullYear()}
   </Typography>
 );
 
@@ -77,6 +77,7 @@ const Login = () => {
               Sign in
             </Typography>
             <Box
+            className="!max-w-[60%]"
               noValidate
               component="form"
               sx={{ mt: 1 }}

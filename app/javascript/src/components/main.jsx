@@ -1,9 +1,9 @@
 import React from "react";
-import ListingPage from "../pages/ListingPage";
+import Homepage from "../pages/Home";
 
 const Main = () => (
   <div className="h-screen w-screen">
-    <ListingPage />
+    <Homepage />
   </div>
 );
 

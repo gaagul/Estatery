@@ -5,6 +5,7 @@ import Main from "./components/main";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import AdminPanel from "./pages/adminPanel";
+import ListingPage from "./pages/ListingPage"
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/signup" element={<Signup />} />
       <Route exact path="/admin" element={<AdminPanel />} />
+      <Route exact path="/search" element={<ListingPage />} />
       <Route path="/" element={<Main />} />
     </Routes>
     </BrowserRouter>

@@ -6,6 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 import RoofingIcon from "@mui/icons-material/Roofing";
+import { Link } from "react-router-dom";
 
 const Navbar = () => (
   <AppBar className="!bg-indigo-500" elevation={0} position="absolute">
@@ -16,13 +17,13 @@ const Navbar = () => (
           Casa.
         </Typography>
         <Box className="ml-auto block">
-          <Button className="!mx-2 !bg-indigo-500 !text-white">Sign Up</Button>
-          <Button
+        <Link to="/signup"><Button className="!mx-2 !bg-indigo-500 !text-white">Sign Up</Button></Link>
+          <Link to="/login"><Button
             className="!mx-2 !border-white !bg-indigo-500 !text-white"
             variant="outlined"
           >
             Sign In
-          </Button>
+          </Button></Link>
         </Box>
       </Toolbar>
     </Container>
