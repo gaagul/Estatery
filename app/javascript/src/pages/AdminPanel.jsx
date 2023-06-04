@@ -1,24 +1,21 @@
-import React,{ useState } from "react";
-import SideBar from "../components/AdminPanel/Sidebar";
+import React, { useState } from "react";
+import { Layout } from "antd";
+import Sidebar from "../components/AdminPanel/Sidebar";
 import Table from "../components/AdminPanel/Table";
-import Header from "../components/AdminPanel/Header";
+
+const { Header } = Layout;
 
 const AdminPanel = () => {
-  const [tab, setTab] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const handleTabChange = (event, newValue) => {
-    console.log(event, newValue);
-    setTab(newValue);
-  };
   return (
-  <div className="flex h-screen w-screen">
-    <SideBar />
-    <div className="flex h-full grow flex-col px-4 py-4">
-      <Header tab={tab} setTab={handleTabChange}/>
-      <Table />
-    </div>
-  </div>
-);
-}
-
+    <Layout className="min-h-screen w-screen">
+      <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
+      <Layout className="px-4">
+        <Header className="bg-gray-200" />
+        <Table />
+      </Layout>
+    </Layout>
+  );
+};
 export default AdminPanel;
