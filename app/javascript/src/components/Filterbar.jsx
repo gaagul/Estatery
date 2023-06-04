@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Filterbar = ()=>{
     return <>
-        <div className="flex justify-center p-10 rounded-md m-10 shadow-md shadow-indigo-100 border">
+        <div className="flex justify-center p-10 rounded-md shadow-md shadow-indigo-100 bg-white">
             <TextField variant="outlined" label="Location" defaultValue="New York, USA" className="!mx-2"/>
             <TextField variant="outlined" label="Price" defaultValue="$500" className="!mx-2"/>
             <TextField variant="outlined" label="Property Type" defaultValue="Houses" className="!mx-2"/>

@@ -6,8 +6,8 @@ import ListingPage from "../pages/ListingPage";
 
 const Main = () => (
   <div className="h-screen w-screen">
-    {/* <ListingPage /> */}
-    <AdminPanel />
+    <ListingPage />
+    {/* <AdminPanel /> */}
   </div>
 );
 
