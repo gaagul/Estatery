@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { setToLocalStorage } from "../hooks/useLocalStorage";
 
 const Copyright = props => (
   <Typography align="center" color="text.secondary" variant="body2" {...props}>
