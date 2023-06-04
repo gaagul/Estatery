@@ -7,7 +7,7 @@ const Header = ({tab, setTab}) => (
     <Tabs value={tab} onChange={setTab} aria-label="basic tabs example">
       <Tab label="Pending" />
       <Tab label="Approved" />
-      {/* <Tab label="Services" /> */}
+      <Tab label="Rejected" />
     </Tabs>
   </header>
 );
