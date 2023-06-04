@@ -3,7 +3,20 @@
 @tailwind utilities;
 
 @import "./_property-card.scss";
+@import "./_listing-page.scss";
 
-*{
+.primary-text {
+    color: #7265f9 !important;
+}
+
+.thumbnail {
+    height: 45%;
+}
+
+.secondary {
+    background-color: #f7f7fe
+}
+
+* {
     font-family: 'Inter', sans-serif !important;
 }
