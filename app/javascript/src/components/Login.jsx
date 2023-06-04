@@ -12,7 +12,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { LockOutlinedIcon } from "@mui/icons-material";
+import { LockOutlined } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const Copyright = props => (
@@ -50,7 +50,7 @@ const Login = () => {
           xs={false}
           sx={{
             backgroundImage:
-              "url(https://source.unsplash.com/random?wallpapers)",
+              "url(https://ik.imagekit.io/gaagultest/CASA/home-bg_YN9qVyIcci.jpg?updatedAt=1685880520112)",
             backgroundRepeat: "no-repeat",
             backgroundColor: t =>
               t.palette.mode === "light"
@@ -71,7 +71,7 @@ const Login = () => {
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
+              <LockOutlined />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in
