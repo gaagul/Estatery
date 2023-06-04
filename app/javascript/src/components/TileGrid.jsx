@@ -7,7 +7,7 @@ const TileGrid = () => {
   return (
     <div className="flex w-full flex-wrap justify-between">
       {numbers.map(a => (
-        <div className="mb-10  basis-1/4 gap-2">
+        <div className="mb-10  basis-1/4 gap-2" key={a}>
           <PropertyCard />
         </div>
       ))}
