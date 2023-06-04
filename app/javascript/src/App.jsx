@@ -6,6 +6,7 @@ import Main from "./components/main";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import AdminPanel from "./pages/AdminPanel";
+import ListingPage from "./pages/ListingPage"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route exact element={<Login />} path="/login" />
         <Route exact element={<Signup />} path="/signup" />
         <Route exact element={<AdminPanel />} path="/admin" />
+        <Route exact element={<ListingPage />} path="/search" />
         <Route element={<Main />} path="/" />
       </Routes>
     </BrowserRouter>

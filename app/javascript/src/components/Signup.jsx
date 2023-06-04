@@ -18,14 +18,12 @@ import { LockOutlined } from "@mui/icons-material";
 const Copyright = props => (
   <Typography align="center" color="text.secondary" variant="body2" {...props}>
     {"Copyright © "}
-    <Link color="inherit" href="https://mui.com/">
-      Your Website
-    </Link>{" "}
+    
+      Casa
+    {" "}
     {new Date().getFullYear()}.
   </Typography>
 );
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
