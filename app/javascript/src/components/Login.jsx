@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { GoogleAuth } from "./googleAuth";
+
 
 const Copyright = props => (
   <Typography align="center" color="text.secondary" variant="body2" {...props}>
@@ -127,6 +129,7 @@ const Login = () => {
                   </Link>
                 </Grid>
               </Grid>
+            <GoogleAuth redirectPath="/"/>
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
