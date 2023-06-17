@@ -27,6 +27,7 @@
     "antd": "^5.5.2",
     "babel-plugin-istanbul": "^6.1.1",
     "classnames": "^2.3.2",
+    "firebase": "^9.22.2",
     "formik": "^2.4.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "ramda": "^0.29.0",
