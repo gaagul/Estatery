@@ -9,6 +9,7 @@ import {
   CloseCircleOutlined,
 } from "@ant-design/icons";
 import { Tag, Dropdown } from "antd";
+import { Link } from "react-router-dom";
 
 export const getItem = (label, key, icon, children) => ({
   key,
@@ -18,10 +19,34 @@ export const getItem = (label, key, icon, children) => ({
 });
 
 export const items = [
-  getItem("Listings", "1", <BarChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Team", "3", <TeamOutlined />),
-  getItem("Settings", "4", <SettingOutlined />),
+  getItem(
+    "Listings",
+    "1",
+    <Link to="/admin">
+      <BarChartOutlined />
+    </Link>
+  ),
+  getItem(
+    "Option 2",
+    "2",
+    <Link to="/admin/option2">
+      <DesktopOutlined />
+    </Link>
+  ),
+  getItem(
+    "Team",
+    "3",
+    <Link to="/admin/team">
+      <TeamOutlined />
+    </Link>
+  ),
+  getItem(
+    "Settings",
+    "4",
+    <Link to="/admin/settings">
+      <SettingOutlined />
+    </Link>
+  ),
 ];
 
 export const TABLE_ACTIONS = [

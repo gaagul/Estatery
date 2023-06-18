@@ -14,16 +14,15 @@ import {
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useLocation } from "react-router-dom";
 import { GoogleAuth } from "./googleAuth";
 
+import { setToLocalStorage } from "../hooks/useLocalStorage";
 
 const Copyright = props => (
   <Typography align="center" color="text.secondary" variant="body2" {...props}>
     {"Copyright © "}
-    
-      Casa
-    {" "}
-    {new Date().getFullYear()}
+    Casa {new Date().getFullYear()}
   </Typography>
 );
 
@@ -32,13 +31,19 @@ const Copyright = props => (
 const defaultTheme = createTheme();
 
 const Login = () => {
+  const location = useLocation();
+
   const handleSubmit = event => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // const data = new FormData(event.currentTarget);
+    setToLocalStorage("isLoggedIn", true);
+    const { state = {} } = location;
+    let redirectPath = state?.from || "/";
+
+    if (state?.queryParams) {
+      redirectPath = `${redirectPath}?${state.queryParams}`;
+    }
+    window.location.href = redirectPath;
   };
 
   return (
@@ -79,8 +84,8 @@ const Login = () => {
               Sign in
             </Typography>
             <Box
-            className="!max-w-[60%]"
               noValidate
+              className="!max-w-[60%]"
               component="form"
               sx={{ mt: 1 }}
               onSubmit={handleSubmit}
@@ -129,7 +134,7 @@ const Login = () => {
                   </Link>
                 </Grid>
               </Grid>
-            <GoogleAuth redirectPath="/"/>
+              <GoogleAuth redirectPath="/" />
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>

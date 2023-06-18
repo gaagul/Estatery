@@ -9,7 +9,15 @@
     "preview": "vite preview"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": [
+    "{src,example}/**/*.{js,jsx,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "{package.json,.eslintrc.js,.prettierrc.js}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    ".eslint-rules/**/*": [
       "prettier --write",
       "eslint --fix"
     ]
@@ -30,6 +38,7 @@
     "firebase": "^9.22.2",
     "formik": "^2.4.1",
     "postcss-flexbugs-fixes": "^5.0.2",
+    "qs": "^6.11.2",
     "ramda": "^0.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
