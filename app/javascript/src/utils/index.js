@@ -8,3 +8,14 @@ export const createQueryString = obj => {
 
   return params.toString();
 };
+
+export const initializeFilters = () => {
+  const filters = ["type", "location", "price"];
+  const params = getQueryParams();
+
+  return filters.reduce((acc, filter) => {
+    acc[filter] = params[filter] || "";
+
+    return acc;
+  }, {});
+};

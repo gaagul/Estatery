@@ -9,8 +9,9 @@ const Searchbar = ({ handleSearch }) => {
   });
 
   return (
-    <Box className="flex items-center">
+    <Box className="flex items-start">
       <TextField
+        helperText="rent or buy"
         id="outlined-basic"
         label="Property Type"
         sx={{ mx: 1 }}
@@ -18,6 +19,7 @@ const Searchbar = ({ handleSearch }) => {
         onChange={e => setValues({ ...values, type: e.target.value })}
       />
       <TextField
+        helperText="zip code"
         id="outlined-basic"
         label="Search location"
         sx={{ mx: 1 }}

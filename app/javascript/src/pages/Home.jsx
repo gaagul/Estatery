@@ -21,7 +21,6 @@ const Homepage = () => {
   return (
     <>
       <Container maxWidth="lg">
-        <Navbar />
         <Grid container className="flex h-screen items-center">
           <Grid item md={8} sx={12}>
             <Box mb={10}>
