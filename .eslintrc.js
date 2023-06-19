@@ -55,6 +55,7 @@ module.exports = {
     "unused-imports",
   ],
   rules: {
+    "react/jsx-props-no-spreading": "off",
     quotes: ["error", "double"],
     // auto-fixable: Respect all Prettier rules and apply it.
     "prettier/prettier": "error",
@@ -269,6 +270,5 @@ module.exports = {
         pattern: { json: "always", ico: "always" },
       },
     ],
-    
   },
 };

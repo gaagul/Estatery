@@ -1,10 +1,6 @@
 import React from "react";
 import Filterbar from "../components/Filterbar";
 
-const Testpage = ()=>{
-    return <>
-    <Filterbar />
-    </>
-}
+const Testpage = () => <Filterbar />;
 
 export default Testpage;

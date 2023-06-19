@@ -9,17 +9,21 @@ import {
 import { IconButton, Typography } from "@mui/material";
 import { HOUSE } from "./constants";
 
-const PropertyCard = ({ house = HOUSE }) => (
-  <div className="h-60 w-52 rounded-lg border-2 shadow-md">
-    <img alt="img" className="thumbnail h-1/2 w-full" src={house?.thumbnail} />
+const PropertyCard = ({ property = HOUSE }) => (
+  <div className="h-64 w-52 rounded-lg border-2 shadow-md">
+    <img
+      alt="img"
+      className="thumbnail h-1/2 w-full"
+      src={property?.thumbnail}
+    />
     <div className="mt-2 flex flex-col px-4">
       <div className="flex items-center justify-between">
         <div className="flex items-end">
           <Typography className="primary-text" fontSize={14}>
-            ${house?.price}
+            ${property?.price}
           </Typography>
           <Typography fontSize={14}>
-            {house?.forRent ? " /month" : ""}
+            {property?.forRent ? " /month" : ""}
           </Typography>
         </div>
         <IconButton
@@ -28,7 +32,7 @@ const PropertyCard = ({ house = HOUSE }) => (
             height: "30px",
           }}
         >
-          {house?.favorite ? (
+          {property?.favorite ? (
             <Favorite className="primary-text" />
           ) : (
             <FavoriteBorder className="primary-text" />
@@ -36,24 +40,24 @@ const PropertyCard = ({ house = HOUSE }) => (
         </IconButton>
       </div>
       <Typography className="mt-1" fontSize={14} variant="h6">
-        {house?.name}
+        {property?.name}
       </Typography>
       <Typography className="property-card__address mt-1">
-        {house?.location}
+        {property?.location}
       </Typography>
       <div className="mt-2 border border-gray-300" />
       <div className="mt-2 flex justify-between">
         <div className="flex items-center gap-1">
           <KingBedOutlined className="primary-text" fontSize="10" />
-          <p className="property-card__footer-item">{house?.beds} beds</p>
+          <p className="property-card__footer-item">{property?.beds} beds</p>
         </div>
         <div className="flex items-center gap-1">
           <BathtubOutlined className="primary-text" fontSize="10" />
-          <p className="property-card__footer-item">{house?.baths} baths</p>
+          <p className="property-card__footer-item">{property?.baths} baths</p>
         </div>
         <div className="flex items-center gap-1">
           <AspectRatioOutlined className="primary-text" fontSize="10" />
-          <p className="property-card__footer-item">{house?.area} m2</p>
+          <p className="property-card__footer-item">{property?.area} m2</p>
         </div>
       </div>
     </div>
