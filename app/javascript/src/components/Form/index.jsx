@@ -7,7 +7,7 @@ import Steps from "./Steps";
 import Basic from "./Basic";
 import Assets from "./Assets";
 import AdditionalInfo from "./AdditionalInfo";
-import { PROPERTY_FORM_INITIAL_VALUES } from "./constants";
+import { PROPERTY_FORM_INITIAL_VALUES, VALIDATION_SCHEMA } from "./constants";
 
 const Form = () => {
   const [assets, setAssets] = useState({
@@ -48,7 +48,10 @@ const Form = () => {
   return (
     <Container className="flex h-full w-full flex-col gap-8 px-60 pt-8">
       <Steps currentStep={currentStep} />
-      <Formik initialValues={PROPERTY_FORM_INITIAL_VALUES}>
+      <Formik
+        initialValues={PROPERTY_FORM_INITIAL_VALUES}
+        validationSchema={VALIDATION_SCHEMA}
+      >
         {({ isSubmitting }) => (
           <FormikForm>
             {renderCurrentStep()}

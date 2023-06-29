@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import RoofingIcon from "@mui/icons-material/Roofing";
 import { useNavigate } from "react-router-dom";
 import Searchbar from "../components/Searchbar";
-import Navbar from "../components/Navbar";
 import TileGrid from "../components/TileGrid";
 import { createQueryString } from "../utils";
 
