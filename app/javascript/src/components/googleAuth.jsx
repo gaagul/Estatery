@@ -20,8 +20,8 @@ export const GoogleAuth = props => {
         console.log(credential);
         console.log(token);
         console.log(user);
-        let userDetails = {name: user.displayName, email: user.email, photoURL: user.photoURL, uid: user.uid};
-        createNewUserWithRole("user", user.uid, userDetails);
+        let userDetails = {name: user.displayName, email: user.email, photoURL: user.photoURL, uid: user.uid, role: "standard"};
+        createNewUserWithRole(user.uid, userDetails);
         setToLocalStorage("loggedInUser", JSON.stringify(userDetails));
         setToLocalStorage("isLoggedIn", true);
         navigate(props.redirectPath);

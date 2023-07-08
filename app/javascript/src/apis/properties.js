@@ -14,7 +14,7 @@ const fetchUserById = async (uid) => {
     return await getDoc(doc(db, "users", uid)).then(response => response).catch(error=>{throw error})
 }
 
-const createNewUserWithRole = async (role, userId, userDetails) => {
+const createNewUserWithRole = async (userId, userDetails) => {
     let isUserExists = await fetchUserById(userId);
     if(isUserExists.exists())
         throw "User Already exists!!!";
