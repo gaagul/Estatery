@@ -9,7 +9,7 @@ import {
 import { IconButton, Typography } from "@mui/material";
 import { HOUSE } from "./constants";
 
-const PropertyCard = ({ property = HOUSE }) => (
+const PropertyCard = ({ property }) => (
   <div className="h-64 w-52 rounded-lg border-2 shadow-md">
     <img
       alt="img"
