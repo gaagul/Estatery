@@ -1,5 +1,5 @@
 import React from "react";
-import { Field } from "formik";
+import { Field, ErrorMessage } from "formik";
 import { Typography } from "antd";
 
 const { Title } = Typography;
@@ -23,6 +23,10 @@ const Basic = () => (
           name="name"
           type="text"
         />
+        <ErrorMessage
+          name="name"
+          render={msg => <div className="error">{msg}</div>}
+        />
       </div>
       <div>
         <Typography
@@ -36,6 +40,10 @@ const Basic = () => (
           id="address"
           name="address"
           type="text"
+        />
+        <ErrorMessage
+          name="address"
+          render={msg => <div className="error">{msg}</div>}
         />
       </div>
       <div>
@@ -51,6 +59,10 @@ const Basic = () => (
           name="zipcode"
           type="text"
         />
+        <ErrorMessage
+          name="zipcode"
+          render={msg => <div className="error">{msg}</div>}
+        />
       </div>
       <div>
         <Typography
@@ -64,6 +76,10 @@ const Basic = () => (
           id="bedrooms"
           name="bedrooms"
           type="number"
+        />
+        <ErrorMessage
+          name="bedrooms"
+          render={msg => <div className="error">{msg}</div>}
         />
       </div>
       <div>
@@ -79,6 +95,10 @@ const Basic = () => (
           name="bathrooms"
           type="number"
         />
+        <ErrorMessage
+          name="bathrooms"
+          render={msg => <div className="error">{msg}</div>}
+        />
       </div>
       <div>
         <Typography
@@ -92,6 +112,10 @@ const Basic = () => (
           id="area"
           name="area"
           type="number"
+        />
+        <ErrorMessage
+          name="area"
+          render={msg => <div className="error">{msg}</div>}
         />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, useFormikContext } from "formik";
+import { Field, useFormikContext, ErrorMessage } from "formik";
 import { Typography, Switch } from "antd";
 import classNames from "classnames";
 
@@ -36,6 +36,10 @@ const AdditionalInfo = () => {
               name="price"
               type="text"
             />
+            <ErrorMessage
+              name="price"
+              render={msg => <div className="error">{msg}</div>}
+            />
           </div>
           <div className="mb-4 items-center">
             <Typography
@@ -58,6 +62,10 @@ const AdditionalInfo = () => {
               })}
               onChange={handleTypeChange}
             />
+            <ErrorMessage
+              name="=type"
+              render={msg => <div className="error">{msg}</div>}
+            />
           </div>
         </div>
         <div>
@@ -75,6 +83,10 @@ const AdditionalInfo = () => {
             name="amenities"
             type="text"
           />
+          <ErrorMessage
+            name="amenities"
+            render={msg => <div className="error">{msg}</div>}
+          />
         </div>
         <div>
           <Typography
@@ -89,6 +101,10 @@ const AdditionalInfo = () => {
             id="description"
             name="description"
             type="text"
+          />
+          <ErrorMessage
+            name="name"
+            render={msg => <div className="error">{msg}</div>}
           />
         </div>
       </div>

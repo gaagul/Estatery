@@ -13,8 +13,25 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   const handleSearch = values => {
-    const getQueryParams = createQueryString(values);
-    navigate(`/listing?${getQueryParams}`);
+    // Filter keys with non-empty values
+    const searchParams = Object.keys(values).reduce((params, key) => {
+      if (values[key]) {
+        params[key] = values[key];
+      }
+
+      return params;
+    }, {});
+
+    // Check if the searchParams object is empty
+    const isEmpty = Object.keys(searchParams).length === 0;
+
+    if (isEmpty) {
+      // If searchParams object is empty, navigate to '/listing' without query parameters
+      navigate("/listing");
+    } else {
+      const getQueryParams = createQueryString(searchParams);
+      navigate(`/listing?${getQueryParams}`);
+    }
   };
 
   return (

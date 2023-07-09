@@ -16,17 +16,16 @@ const Navbar = () => {
     <AppBar className="!bg-indigo-500" elevation={0} position="absolute">
       <Container maxWidth="lg">
         <Toolbar className="flex justify-between">
-          <Typography variant="h4">
-            <RoofingIcon className="!mr-2" fontSize="large" />
-            Casa.
-          </Typography>
+          <Link to="/">
+            <Typography variant="h4">
+              <RoofingIcon className="!mr-2" fontSize="large" />
+              Casa.
+            </Typography>
+          </Link>
           {isLoggedIn ? (
             <AvatarMenu />
           ) : (
             <Box className="block">
-              <Link to="/add">
-                <Button className="!mx-2 !text-white">Add Property</Button>
-              </Link>
               <Link to="/signup">
                 <Button className="!mx-2 !text-white">Sign Up</Button>
               </Link>
