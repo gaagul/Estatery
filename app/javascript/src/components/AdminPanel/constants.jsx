@@ -18,6 +18,24 @@ export const getItem = (label, key, icon, children) => ({
   label,
 });
 
+export const PROPERTY_STATUS = [
+  {
+    key: "1",
+    value: "pending",
+    label: "Pending",
+  },
+  {
+    key: "2",
+    value: "approved",
+    label: "Approved",
+  },
+  {
+    key: "3",
+    value: "rejected",
+    label: "Rejected",
+  },
+];
+
 export const items = [
   getItem(
     "Listings",
@@ -67,7 +85,6 @@ export const columns = [
     title: "Name",
     dataIndex: "name",
     key: "name",
-    render: text => <a>{text}</a>,
   },
   {
     title: "Price",
@@ -115,6 +132,7 @@ export const data = [
     price: 32,
     address: "New York No. 1 Lake Park",
     tag: "isRent",
+    status: "pending",
   },
   {
     key: "2",
@@ -122,6 +140,7 @@ export const data = [
     price: 42,
     address: "London No. 1 Lake Park",
     tag: "isRent",
+    status: "pending",
   },
   {
     key: "3",
@@ -129,5 +148,6 @@ export const data = [
     price: 32,
     address: "Sydney No. 1 Lake Park",
     tag: "isRent",
+    status: "pending",
   },
 ];

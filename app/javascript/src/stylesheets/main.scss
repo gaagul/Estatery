@@ -6,7 +6,15 @@
 @import "./_listing-page.scss";
 
 .primary-text {
-    color: #7265f9 !important;
+    color: #6941c6 !important;
+}
+
+.secondary-button-bg {
+    background-color: #f4ebff !important;
+}
+
+.primary-button-bg {
+    background-color: #6941c6 !important;
 }
 
 .thumbnail {
@@ -15,6 +23,11 @@
 
 .secondary {
     background-color: #f7f7fe
+}
+
+.error {
+    color: red;
+    font-size: x-small;
 }
 
 * {

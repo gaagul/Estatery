@@ -43,7 +43,7 @@ const PropertyCard = ({ property }) => (
         {property?.name}
       </Typography>
       <Typography className="property-card__address mt-1">
-        {property?.location}
+        {property?.address}
       </Typography>
       <div className="mt-2 border border-gray-300" />
       <div className="mt-2 flex justify-between">

@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import ListingPage from "./pages/ListingPage";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
+import Details from "./pages/Details";
 
 const Main = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -25,12 +26,21 @@ const Main = () => {
               <Route element={<Signup />} path="/signup" />
               <Route element={<AdminPanel />} path="/admin" />
               {isLoggedIn ? (
-                <Route element={<ListingPage />} path="/listing" />
+                <>
+                  <Route element={<ListingPage />} path="/listing" />
+                  <Route exact element={<Details />} path="/details" />
+                </>
               ) : (
-                <Route
-                  element={<LoginRedirect from="/listing" />}
-                  path="/listing"
-                />
+                <>
+                  <Route
+                    element={<LoginRedirect from="/listing" />}
+                    path="/listing"
+                  />
+                  <Route
+                    element={<LoginRedirect from="/details" />}
+                    path="/details"
+                  />
+                </>
               )}
               <Route element={<Home />} path="/" />
             </Routes>
