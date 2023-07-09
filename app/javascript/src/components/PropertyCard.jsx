@@ -7,7 +7,6 @@ import {
   AspectRatioOutlined,
 } from "@mui/icons-material";
 import { IconButton, Typography } from "@mui/material";
-import { HOUSE } from "./constants";
 
 const PropertyCard = ({ property }) => (
   <div className="h-64 w-52 rounded-lg border-2 shadow-md">
