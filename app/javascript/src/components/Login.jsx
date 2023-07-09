@@ -134,7 +134,7 @@ const Login = () => {
                   </Link>
                 </Grid>
               </Grid>
-              <GoogleAuth redirectPath="/" />
+              <GoogleAuth redirectPath="/listing" />
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>

@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Button } from "@mui/material";
 import { auth } from "../firebase";
+import {createNewUserWithRole} from "../apis/properties"
+import { removeFromLocalStorage, setToLocalStorage } from "../hooks/useLocalStorage";
+
 
 export const GoogleAuth = props => {
   const navigate = useNavigate();
@@ -17,12 +20,15 @@ export const GoogleAuth = props => {
         console.log(credential);
         console.log(token);
         console.log(user);
+        let userDetails = {name: user.displayName, email: user.email, photoURL: user.photoURL, uid: user.uid};
+        createNewUserWithRole("user", user.uid, userDetails);
+        setToLocalStorage("loggedInUser", JSON.stringify(userDetails));
+        setToLocalStorage("isLoggedIn", true);
         navigate(props.redirectPath);
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        const { email } = error.customData;
         const credential = GoogleAuthProvider.credentialFromError(error);
         console.log(errorCode);
         console.log(errorMessage);
@@ -35,6 +41,8 @@ export const GoogleAuth = props => {
     signOut(auth)
       .then(() => {
         console.log("Sign-out successful.");
+        setToLocalStorage("isLoggedIn", false);
+        removeFromLocalStorage("loggedInUser");
       })
       .catch(error => {
         console.log(`An error happened. Here's the error: ${error}`);
