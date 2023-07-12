@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Container } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { pickBy, identity, isEmpty } from "ramda";
@@ -11,15 +11,14 @@ import { useFetchProperties } from "../hooks/usePropertiesApi";
 const ListingPage = () => {
   const [filters, setFilters] = useState(initializeFilters());
   const [isFilterBarOpen, setIsFilterBarOpen] = useState(false);
-  const [_, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const { data = [], isLoading } = useFetchProperties();
-  const getFilteredProperties = useCallback(
+
+  const filteredProperties = useMemo(
     () => filterProperties(data, filters),
     [data, filters]
   );
-
-  const filteredProperties = getFilteredProperties();
 
   const handleFilterSubmit = values => {
     setFilters(values);
@@ -34,6 +33,10 @@ const ListingPage = () => {
     setFilters(newFilters);
     handleFilterSubmit(newFilters);
   };
+
+  useEffect(() => {
+    setFilters(initializeFilters());
+  }, [searchParams]);
 
   if (isLoading) {
     return (

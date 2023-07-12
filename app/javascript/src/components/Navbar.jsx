@@ -13,7 +13,12 @@ const Navbar = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   return (
-    <AppBar className="!bg-indigo-500" elevation={0} position="absolute">
+    <AppBar
+      className="!bg-indigo-500"
+      elevation={0}
+      position="absolute"
+      style={{ zIndex: 1 }}
+    >
       <Container maxWidth="lg">
         <Toolbar className="flex justify-between">
           <Link to="/">

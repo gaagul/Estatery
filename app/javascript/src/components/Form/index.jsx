@@ -46,7 +46,7 @@ const Form = () => {
   };
 
   return (
-    <Container className="flex h-full w-full flex-col gap-8 px-60 pt-8">
+    <Container className="mt-12 flex h-full w-full flex-col gap-8 px-60 pt-8">
       <Steps currentStep={currentStep} />
       <Formik
         initialValues={PROPERTY_FORM_INITIAL_VALUES}
