@@ -8,6 +8,10 @@ import Basic from "./Basic";
 import Assets from "./Assets";
 import AdditionalInfo from "./AdditionalInfo";
 import { PROPERTY_FORM_INITIAL_VALUES, VALIDATION_SCHEMA } from "./constants";
+import { getFromLocalStorage } from "../../hooks/useLocalStorage";
+import { createProperty, uploadImageAsset } from "../../apis/properties";
+import { updateDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const Form = () => {
   const [assets, setAssets] = useState({
@@ -32,6 +36,35 @@ const Form = () => {
     }
   };
 
+  const handleAssetUpload = async (createdPropertyRef) => {
+    console.log("createdPropertyRef", createdPropertyRef)
+    //thumbnail image upload
+    // console.log(assets);
+    const thumbnailUrl = await uploadImageAsset(assets.thumbnail.thumbURL.slice(23))
+    console.log(thumbnailUrl);
+    updateDoc(doc(db, createdPropertyRef._key.path.segments[0], createdPropertyRef._key.path.segments[1]),{thumbnailUrl: thumbnailUrl});
+
+    // //Image List upload
+    let imageList = []; 
+    for (const file of assets.fileList){
+      const imageUrl = await uploadImageAsset(file.thumbUrl.slice(22))
+      console.log(imageUrl);
+      imageList.push(imageUrl);
+    }
+    updateDoc(doc(db, createdPropertyRef._key.path.segments[0], createdPropertyRef._key.path.segments[1]),{imageList: imageList});
+  }
+
+  const handleSubmit = async (formData) => {
+    let loggedInUser = JSON.parse(getFromLocalStorage("loggedInUser", null));
+    if(!loggedInUser){
+      throw "Logged In User information not available!!!";
+    }
+
+    formData.userId = loggedInUser.uid;
+    let createdPropertyRef = await createProperty(formData);
+    await handleAssetUpload(createdPropertyRef);
+  }
+
   const renderCurrentStep = () => {
     switch (currentStep) {
       case 0:
@@ -52,13 +85,13 @@ const Form = () => {
         initialValues={PROPERTY_FORM_INITIAL_VALUES}
         validationSchema={VALIDATION_SCHEMA}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values, setSubmitting }) => (
           <FormikForm>
             {renderCurrentStep()}
             <div className="mt-8 flex justify-end gap-6">
               <Button onClick={previousStep}>Previous</Button>
               {currentStep === 2 ? (
-                <Button loading={isSubmitting} type="submit" onClick={nextStep}>
+                <Button loading={isSubmitting} type="submit" onClick={()=>handleSubmit(values)}>
                   Submit
                 </Button>
               ) : (
